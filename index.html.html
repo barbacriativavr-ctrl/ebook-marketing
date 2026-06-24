@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing que Vende | Barba Criativa</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple: #9333EA;
+    --purple-light: #A855F7;
+    --purple-dark: #6B21A8;
+    --purple-deep: #3B0764;
+    --dark: #1E1B2E;
+    --dark2: #2D1B4E;
+    --cream: #F5F3FF;
+    --gray: #6B7280;
+    --border: #DDD6FE;
+  }
+
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--dark);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .brand {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: #fff;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .brand span { color: var(--purple-light); }
+
+  /* HERO */
+  .hero {
+    background: var(--dark);
+    padding: 88px 24px 96px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(147,51,234,0.18) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    background: rgba(147,51,234,0.18);
+    border: 1px solid rgba(168,85,247,0.45);
+    color: var(--purple-light);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    color: #fff;
+    line-height: 1.08;
+    max-width: 820px;
+    margin: 0 auto 22px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--purple-light);
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: #9CA3AF;
+    max-width: 540px;
+    margin: 0 auto 48px;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+  .cta-primary {
+    display: inline-block;
+    background: var(--purple);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 18px 46px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.15s;
+    cursor: pointer;
+    border: none;
+  }
+  .cta-primary:hover { background: var(--purple-light); transform: translateY(-2px); }
+  .price-hint {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: #6B7280;
+  }
+  .price-hint strong { color: #fff; }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  /* PAIN */
+  .pain {
+    padding: 80px 24px 0;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .pain h2 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: var(--dark);
+    margin-bottom: 32px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .pain-list {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+  }
+  .pain-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 16px 20px;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 3px solid var(--purple);
+    font-size: 0.95rem;
+    color: #374151;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  .pain-list li::before {
+    content: '✕';
+    color: var(--purple);
+    font-weight: 700;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  /* FOR WHO */
+  .forwhom {
+    background: var(--purple-deep);
+    padding: 80px 24px;
+    text-align: center;
+    margin-top: 80px;
+  }
+  .forwhom h2 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    color: #fff;
+    margin-bottom: 48px;
+    letter-spacing: -0.01em;
+  }
+  .forwhom h2 em { font-style: normal; color: var(--purple-light); }
+  .profiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .profile {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 28px 20px;
+    text-align: center;
+  }
+  .profile-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .profile p {
+    color: #D1D5DB;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    font-weight: 400;
+  }
+
+  /* CHAPTERS */
+  .learn {
+    padding: 80px 24px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .learn-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .learn-header h2 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: var(--dark);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .chapters {
+    display: grid;
+    gap: 3px;
+  }
+  .chapter {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    background: #fff;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .chapter:first-child { border-radius: 10px 10px 0 0; }
+  .chapter:last-child  { border-radius: 0 0 10px 10px; }
+  .ch-num {
+    background: var(--purple);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 6px;
+    min-height: 88px;
+    line-height: 1.3;
+    word-break: break-word;
+    hyphens: none;
+    white-space: normal;
+    flex-shrink: 0;
+  }
+  .ch-body {
+    padding: 20px 24px;
+    border-left: 3px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .ch-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--dark);
+    margin-bottom: 5px;
+    line-height: 1.35;
+  }
+  .ch-desc {
+    font-size: 0.86rem;
+    color: var(--gray);
+    line-height: 1.55;
+    font-weight: 400;
+  }
+
+  /* GUARANTEE */
+  .guarantee {
+    background: #F5F3FF;
+    border: 1px solid #DDD6FE;
+    border-radius: 12px;
+    padding: 40px 32px;
+    max-width: 680px;
+    margin: 0 auto 80px;
+    text-align: center;
+  }
+  .guarantee-icon { font-size: 2.5rem; margin-bottom: 16px; display: block; }
+  .guarantee h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--purple-dark);
+    margin-bottom: 12px;
+  }
+  .guarantee p { color: #5B21B6; font-size: 0.95rem; line-height: 1.65; }
+
+  /* PRICE */
+  .pricing {
+    background: var(--dark);
+    padding: 80px 24px;
+    text-align: center;
+  }
+  .pricing h2 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    color: #fff;
+    margin-bottom: 48px;
+    letter-spacing: -0.01em;
+  }
+  .price-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 48px 40px;
+    max-width: 440px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .best-seller {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--purple);
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 5px 18px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .old-price {
+    font-size: 0.9rem;
+    color: #9CA3AF;
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+  .new-price {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 3.8rem;
+    color: var(--purple);
+    line-height: 1;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
+  .new-price sup { font-size: 1.4rem; vertical-align: top; margin-top: 10px; }
+  .price-note { font-size: 0.85rem; color: var(--gray); margin-bottom: 32px; font-weight: 500; }
+  .includes {
+    text-align: left;
+    list-style: none;
+    margin-bottom: 36px;
+    display: grid;
+    gap: 11px;
+  }
+  .includes li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 0.92rem;
+    color: #374151;
+    font-weight: 500;
+  }
+  .includes li::before {
+    content: '✓';
+    color: var(--purple);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .cta-full {
+    display: block;
+    background: var(--purple);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.15s;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+  }
+  .cta-full:hover { background: var(--purple-light); transform: translateY(-2px); }
+  .security-note {
+    margin-top: 14px;
+    font-size: 0.78rem;
+    color: #9CA3AF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-weight: 500;
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 80px 24px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .about h2 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 1.9rem;
+    color: var(--dark);
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+  .about h2 em { font-style: normal; color: var(--purple); }
+  .about p {
+    color: #4B5563;
+    font-size: 0.98rem;
+    line-height: 1.8;
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+  .about-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--dark);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 10px 22px;
+    border-radius: 6px;
+    margin-top: 8px;
+    letter-spacing: 0.07em;
+  }
+  .about-badge span { color: var(--purple-light); }
+
+  /* FAQ */
+  .faq {
+    background: #fff;
+    padding: 80px 24px;
+  }
+  .faq-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .faq h2 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 1.9rem;
+    color: var(--dark);
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: -0.01em;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 22px 0;
+  }
+  .faq-q {
+    font-weight: 600;
+    font-size: 0.97rem;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+  .faq-a {
+    font-size: 0.93rem;
+    color: #4B5563;
+    line-height: 1.72;
+    font-weight: 400;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    padding: 40px 24px;
+    text-align: center;
+  }
+  footer .brand { margin-bottom: 10px; display: block; }
+  footer p { color: #6B7280; font-size: 0.82rem; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 60px 20px 72px; }
+    .price-card { padding: 40px 24px; }
+    .ch-num { font-size: 0.65rem; }
+    .chapter { grid-template-columns: 68px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">BARBA <span>CRIATIVA</span></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Novo E-book</div>
+  <h1>Marketing que <em>Vende</em></h1>
+  <p class="hero-sub">O guia do empresário que quer parar de depender de achismo — e começar a tomar decisões de marketing com inteligência.</p>
+  <a href="https://app.cakto.com.br/checkout-builder/940658" class="cta-primary">Quero o E-book agora</a>
+  <p class="price-hint">Por apenas <strong>R$ 37</strong> — acesso imediato</p>
+</section>
+
+<!-- DOR -->
+<section class="pain">
+  <p class="section-label">Você já passou por isso?</p>
+  <h2>O problema não é falta de dinheiro. É falta de direção.</h2>
+  <ul class="pain-list">
+    <li>Investiu em anúncios e não viu resultado nenhum</li>
+    <li>Contratou agência que prometeu muito e entregou pouco</li>
+    <li>Não sabe dizer se o que está pagando está funcionando</li>
+    <li>Já trocou de estratégia várias vezes sem consistência</li>
+    <li>Fica perdido com tanto termo técnico: CPL, ROAS, funil, CPC...</li>
+  </ul>
+</section>
+
+<!-- PARA QUEM -->
+<section class="forwhom">
+  <p class="section-label" style="color: var(--purple-light);">Para quem é esse e-book</p>
+  <h2>Para empresários que querem <em>resultado real</em></h2>
+  <div class="profiles">
+    <div class="profile">
+      <span class="profile-icon">🏪</span>
+      <p>Donos de negócio local que querem mais clientes</p>
+    </div>
+    <div class="profile">
+      <span class="profile-icon">🏢</span>
+      <p>Gestores que precisam cobrar resultado da agência</p>
+    </div>
+    <div class="profile">
+      <span class="profile-icon">🚀</span>
+      <p>Empreendedores que estão começando a investir em marketing</p>
+    </div>
+    <div class="profile">
+      <span class="profile-icon">💡</span>
+      <p>Empresários que querem entender marketing antes de delegar</p>
+    </div>
+  </div>
+</section>
+
+<!-- O QUE VOCÊ VAI APRENDER -->
+<section class="learn">
+  <div class="learn-header">
+    <p class="section-label">Conteúdo</p>
+    <h2>O que está dentro do e-book</h2>
+  </div>
+  <div class="chapters">
+    <div class="chapter">
+      <div class="ch-num">INTRO</div>
+      <div class="ch-body">
+        <div class="ch-title">Por que a maioria dos empresários perde dinheiro com marketing</div>
+        <div class="ch-desc">O diagnóstico honesto do que está errado e como mudar o jogo a partir de agora.</div>
+      </div>
+    </div>
+    <div class="chapter">
+      <div class="ch-num">CAP 1</div>
+      <div class="ch-body">
+        <div class="ch-title">Os 3 Pilares do Marketing que Realmente Funciona</div>
+        <div class="ch-desc">Presença, tráfego e conversão: entenda o sistema completo antes de investir um centavo.</div>
+      </div>
+    </div>
+    <div class="chapter">
+      <div class="ch-num">CAP 2</div>
+      <div class="ch-body">
+        <div class="ch-title">Presença Digital: Sua Vitrine no Mundo Online</div>
+        <div class="ch-desc">Google Meu Negócio, Instagram e site — o que realmente importa em cada um.</div>
+      </div>
+    </div>
+    <div class="chapter">
+      <div class="ch-num">CAP 3</div>
+      <div class="ch-body">
+        <div class="ch-title">Tráfego: Como Atrair as Pessoas Certas</div>
+        <div class="ch-desc">Orgânico vs pago, Meta Ads vs Google Ads: quando usar cada um sem jogar dinheiro fora.</div>
+      </div>
+    </div>
+    <div class="chapter">
+      <div class="ch-num">CAP 4</div>
+      <div class="ch-body">
+        <div class="ch-title">Conversão: Transformando Visitante em Cliente</div>
+        <div class="ch-desc">WhatsApp Business, prova social e a jornada do cliente que ninguém te contou.</div>
+      </div>
+    </div>
+    <div class="chapter">
+      <div class="ch-num">CAP 5</div>
+      <div class="ch-body">
+        <div class="ch-title">Como Ler Métricas sem Enlouquecer</div>
+        <div class="ch-desc">Separe métricas de vaidade de métricas de resultado — e pare de ser enganado por relatório bonito.</div>
+      </div>
+    </div>
+    <div class="chapter">
+      <div class="ch-num">CAP 6</div>
+      <div class="ch-body">
+        <div class="ch-title">Como Contratar (ou Cobrar) uma Agência de Verdade</div>
+        <div class="ch-desc">Red flags, cláusulas essenciais no contrato e as perguntas que você deve fazer todo mês.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<div style="padding: 0 24px;">
+  <div class="guarantee">
+    <span class="guarantee-icon">🛡️</span>
+    <h3>Garantia de 7 dias</h3>
+    <p>Se você ler o e-book e sentir que não valeu cada centavo, devolvemos seu dinheiro integralmente. Sem perguntas, sem burocracia.</p>
+  </div>
+</div>
+
+<!-- PREÇO -->
+<section class="pricing" id="comprar">
+  <p class="section-label" style="color: var(--purple-light);">Oferta</p>
+  <h2>Garanta seu acesso agora</h2>
+  <div class="price-card">
+    <div class="best-seller">Acesso imediato</div>
+    <p class="old-price">De R$ 97,00</p>
+    <p class="new-price"><sup>R$</sup>37</p>
+    <p class="price-note">pagamento único · acesso vitalício</p>
+    <ul class="includes">
+      <li>E-book completo com mais de 40 páginas</li>
+      <li>6 capítulos práticos com exemplos reais</li>
+      <li>Tabela comparativa Meta Ads vs Google Ads</li>
+      <li>Checklist de contratação de agência</li>
+      <li>Perguntas para cobrar resultado todo mês</li>
+      <li>Acesso imediato após o pagamento</li>
+    </ul>
+    <a href="https://app.cakto.com.br/checkout-builder/940658" class="cta-full">Comprar agora — R$ 37</a>
+    <p class="security-note">🔒 Pagamento seguro · Entrega imediata</p>
+  </div>
+</section>
+
+<!-- SOBRE A AGÊNCIA -->
+<section class="about">
+  <p class="section-label">Quem fez isso</p>
+  <h2>Criado pela <em>Barba Criativa</em></h2>
+  <p>Somos uma agência de marketing digital focada em resultado real para negócios que não têm tempo a perder. Nosso trabalho é transformar investimento em cliente — não em relatório bonito.</p>
+  <p>Este e-book reúne o que ensinamos aos nossos clientes antes de começar qualquer trabalho. É o nosso método, condensado para quem quer entender o jogo antes de jogar.</p>
+  <div class="about-badge">BARBA <span>CRIATIVA</span> &nbsp;·&nbsp; Marketing Digital</div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <h2>Perguntas frequentes</h2>
+    <div class="faq-item">
+      <p class="faq-q">Precisa ter conhecimento em marketing para ler?</p>
+      <p class="faq-a">Não. O e-book foi escrito especialmente para quem está começando. Todos os termos técnicos são explicados de forma simples e direta.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Como recebo o material após a compra?</p>
+      <p class="faq-a">Imediatamente após o pagamento você recebe um e-mail com o link para download. Acesso vitalício, sem mensalidade.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Funciona para qualquer tipo de negócio?</p>
+      <p class="faq-a">Sim. Os fundamentos cobertos no e-book se aplicam a qualquer tipo de empresa — comércio, serviço, indústria, negócio local ou online.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">E se eu quiser contratar a Barba Criativa depois?</p>
+      <p class="faq-a">Ótimo! O e-book vai te preparar para aproveitar muito melhor qualquer serviço de agência — incluindo o nosso. Fique à vontade para entrar em contato.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="brand">BARBA <span>CRIATIVA</span></span>
+  <p>© 2024 Barba Criativa Agência de Marketing · Todos os direitos reservados</p>
+</footer>
+
+</body>
+</html>
